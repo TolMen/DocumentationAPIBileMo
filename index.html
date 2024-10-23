@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Documentation API BileMo</title>
+        <!-- Bootstrap CSS -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <!-- Barre de navigation latérale droite -->
+        <div class="sidebar">
+            <a href="#api">API BileMo</a>
+            <a href="#prerequis">Prérequis</a>
+            <a href="#auth-jwt">Authentification</a>
+            <span style="color: white">----------</span>
+            <a href="#apiEndpoints">EndPoints :</a>
+            <a href="#produits">Produit</a>
+            <a href="#clients">Client</a>
+            <a href="#users">Utilisateur</a>
+            <span style="color: white">----------</span>
+            <a href="#httpCodes">Codes HTTP</a>
+        </div>
+
+        <div id="api" class="content p-4" style="margin-right: 150px">
+            <!-- Section Présentation de l'API BileMo -->
+            <section class="mt-3">
+                <div class="container">
+                    <!-- Présentation de l'API BileMo -->
+                    <div class="mb-4">
+                        <h2 class="mb-4 text-center">
+                            Présentation de l'API BileMo
+                        </h2>
+                        <p class="mb-5 text-center">
+                            L'<strong>API BileMo</strong> est un service conçu
+                            pour les entreprises dans le cadre de transactions
+                            B2B. Son but principal est de permettre aux
+                            plateformes d'accéder facilement au vaste catalogue
+                            de produits BileMo, tout en gérant les utilisateurs
+                            associés à ces plateformes. Grâce à cette API, les
+                            entreprises peuvent intégrer rapidement les produits
+                            de BileMo dans leurs propres systèmes et gérer
+                            efficacement les utilisateurs qui interagissent avec
+                            ces produits.
+                        </p>
+
+                        <!-- Section avec cartes côte à côte -->
+                        <div class="row mt-4 mb-4">
+                            <div class="col-md-6">
+                                <div class="card shadow-sm">
+                                    <div class="card-body text-center">
+                                        <h3 class="card-title">Public cible</h3>
+                                        <p>
+                                            Cette API est spécifiquement conçue
+                                            pour les entreprises opérant dans un
+                                            cadre <strong>B2B</strong>. Elle
+                                            facilite l'intégration des services
+                                            BileMo dans les plateformes, en
+                                            garantissant un accès direct aux
+                                            produits et une gestion des
+                                            utilisateurs intuitive.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card shadow-sm">
+                                    <div class="card-body text-center">
+                                        <h3 class="card-title">URL de base</h3>
+                                        <p>
+                                            L'API est accessible via l'URL
+                                            suivante :
+                                            <a
+                                                href="https://127.0.0.1:8000/"
+                                                target="_blank"
+                                                >https://127.0.0.1:8000/</a
+                                            ><br />
+                                            Les entreprises peuvent interagir
+                                            avec cette API en utilisant cette
+                                            URL comme point d'accès principal,
+                                            elle utilise le format
+                                            <strong>JSON</strong>.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3 class="mt-5 mb-4 text-center">Fonctionnalités</h3>
+                        <p class="text-center">
+                            L'API BileMo offre plusieurs fonctionnalités
+                            essentielles qui permettent aux entreprises de gérer
+                            leurs interactions avec les produits et les
+                            utilisateurs. Les utilisateurs peuvent consulter la
+                            liste complète des produits et accéder à leurs
+                            détails spécifiques, tout comme ils peuvent
+                            visualiser et gérer la liste des clients, ainsi que
+                            les utilisateurs qui leur sont liés. De plus, l'API
+                            permet d'ajouter, de modifier, ou de supprimer des
+                            utilisateurs de manière fluide, offrant ainsi une
+                            grande flexibilité dans la gestion des ressources
+                            humaines au sein de l'entreprise.
+                        </p>
+
+                        <!-- Accordéon pour les prérequis techniques -->
+                        <h3 id="prerequis" class="mt-5 mb-4 text-center">
+                            Prérequis techniques
+                        </h3>
+                        <div class="accordion mb-5" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2
+                                    class="accordion-header"
+                                    id="headingSymfony"
+                                >
+                                    <button
+                                        class="accordion-button"
+                                        type="button"
+                                        data-bs-toggle="collapse"
+                                        data-bs-target="#collapseSymfony"
+                                        aria-expanded="true"
+                                        aria-controls="collapseSymfony"
+                                    >
+                                        Symfony
+                                    </button>
+                                </h2>
+                                <div
+                                    id="collapseSymfony"
+                                    class="accordion-collapse collapse show"
+                                    aria-labelledby="headingSymfony"
+                                    data-bs-parent="#accordionExample"
+                                >
+                                    <div class="accordion-body">
+                                        <strong>Symfony</strong> est le
+                                        framework PHP utilisé pour construire
+                                        l'API, offrant une structure robuste
+                                        pour les API RESTful.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2
+                                    class="accordion-header"
+                                    id="headingDoctrine"
+                                >
+                                    <button
+                                        class="accordion-button collapsed"
+                                        type="button"
+                                        data-bs-toggle="collapse"
+                                        data-bs-target="#collapseDoctrine"
+                                        aria-expanded="false"
+                                        aria-controls="collapseDoctrine"
+                                    >
+                                        Doctrine ORM
+                                    </button>
+                                </h2>
+                                <div
+                                    id="collapseDoctrine"
+                                    class="accordion-collapse collapse"
+                                    aria-labelledby="headingDoctrine"
+                                    data-bs-parent="#accordionExample"
+                                >
+                                    <div class="accordion-body">
+                                        <strong>Doctrine ORM</strong> facilite
+                                        la gestion des interactions avec la base
+                                        de données, en permettant de travailler
+                                        avec des entités PHP plutôt qu'avec des
+                                        requêtes SQL directes.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingJWT">
+                                    <button
+                                        class="accordion-button collapsed"
+                                        type="button"
+                                        data-bs-toggle="collapse"
+                                        data-bs-target="#collapseJWT"
+                                        aria-expanded="false"
+                                        aria-controls="collapseJWT"
+                                    >
+                                        Authentification et Sécurisation (JWT)
+                                    </button>
+                                </h2>
+                                <div
+                                    id="collapseJWT"
+                                    class="accordion-collapse collapse"
+                                    aria-labelledby="headingJWT"
+                                    data-bs-parent="#accordionExample"
+                                >
+                                    <div class="accordion-body">
+                                        L'API BileMo utilise le mécanisme de
+                                        <strong>JSON Web Tokens (JWT)</strong>
+                                        pour gérer l'authentification et
+                                        garantir que chaque requête est
+                                        sécurisée.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2
+                                    class="accordion-header"
+                                    id="headingDatabase"
+                                >
+                                    <button
+                                        class="accordion-button collapsed"
+                                        type="button"
+                                        data-bs-toggle="collapse"
+                                        data-bs-target="#collapseDatabase"
+                                        aria-expanded="false"
+                                        aria-controls="collapseDatabase"
+                                    >
+                                        Base de Données
+                                    </button>
+                                </h2>
+                                <div
+                                    id="collapseDatabase"
+                                    class="accordion-collapse collapse"
+                                    aria-labelledby="headingDatabase"
+                                    data-bs-parent="#accordionExample"
+                                >
+                                    <div class="accordion-body">
+                                        Des bases de données comme
+                                        <strong>MySQL</strong> ou
+                                        <strong>PostgreSQL</strong> sont
+                                        utilisées pour stocker les produits et
+                                        les utilisateurs.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2
+                                    class="accordion-header"
+                                    id="headingPostman"
+                                >
+                                    <button
+                                        class="accordion-button collapsed"
+                                        type="button"
+                                        data-bs-toggle="collapse"
+                                        data-bs-target="#collapsePostman"
+                                        aria-expanded="false"
+                                        aria-controls="collapsePostman"
+                                    >
+                                        Outils de Test (Postman)
+                                    </button>
+                                </h2>
+                                <div
+                                    id="collapsePostman"
+                                    class="accordion-collapse collapse"
+                                    aria-labelledby="headingPostman"
+                                    data-bs-parent="#accordionExample"
+                                >
+                                    <div class="accordion-body">
+                                        Pour tester et interagir avec l'API,
+                                        <strong>Postman</strong> est utilisé.
+                                        Cet outil permet de simuler des requêtes
+                                        (GET, POST, PUT, DELETE) et d'inspecter
+                                        les réponses.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2
+                                    class="accordion-header"
+                                    id="headingAdminer"
+                                >
+                                    <button
+                                        class="accordion-button collapsed"
+                                        type="button"
+                                        data-bs-toggle="collapse"
+                                        data-bs-target="#collapseAdminer"
+                                        aria-expanded="false"
+                                        aria-controls="collapseAdminer"
+                                    >
+                                        Outils de Gestion de Base de Données
+                                        (Adminer)
+                                    </button>
+                                </h2>
+                                <div
+                                    id="collapseAdminer"
+                                    class="accordion-collapse collapse"
+                                    aria-labelledby="headingAdminer"
+                                    data-bs-parent="#accordionExample"
+                                >
+                                    <div class="accordion-body">
+                                        <strong>Adminer</strong> est utilisé
+                                        pour administrer la base de données.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Section Authentification avec JWT -->
+                        <section id="auth-jwt" class="mt-5">
+                            <div class="container">
+                                <h2 class="text-center mb-4">
+                                    Authentification avec JWT
+                                </h2>
+
+                                <!-- Card principale -->
+                                <div>
+                                    <div>
+                                        <p class="text-center">
+                                            L'API BileMo utilise les
+                                            <strong
+                                                >JSON Web Tokens (JWT)</strong
+                                            >
+                                            pour sécuriser l'accès aux
+                                            ressources. <br />
+                                            Après authentification réussie, un
+                                            token JWT est renvoyé, qui doit être
+                                            inclus dans chaque requête pour
+                                            accéder aux routes protégées de
+                                            l'API. <br /><br />
+                                            <strong
+                                                >Le token JWT a une durée de vie
+                                                limitée pour des raisons de
+                                                sécurité ! <br />
+                                                Il sera nécessaire de se
+                                                réauthentifier ou de rafraîchir
+                                                le token une fois qu'il aura
+                                                expiré !</strong
+                                            >
+                                        </p>
+
+                                        <!-- Accordéon pour détailler les étapes -->
+                                        <div
+                                            class="accordion"
+                                            id="authAccordion"
+                                        >
+                                            <!-- Demander un Token JWT -->
+                                            <div class="accordion-item">
+                                                <h2
+                                                    class="accordion-header"
+                                                    id="headingTokenRequest"
+                                                >
+                                                    <button
+                                                        class="accordion-button"
+                                                        type="button"
+                                                        data-bs-toggle="collapse"
+                                                        data-bs-target="#collapseTokenRequest"
+                                                        aria-expanded="true"
+                                                        aria-controls="collapseTokenRequest"
+                                                    >
+                                                        Obtenir un Token JWT
+                                                    </button>
+                                                </h2>
+                                                <div
+                                                    id="collapseTokenRequest"
+                                                    class="accordion-collapse collapse show"
+                                                    aria-labelledby="headingTokenRequest"
+                                                    data-bs-parent="#authAccordion"
+                                                >
+                                                    <div class="accordion-body">
+                                                        <p>
+                                                            Pour obtenir un
+                                                            token JWT, envoyez
+                                                            une requête
+                                                            <span
+                                                                class="badge bg-warning"
+                                                                >POST</span
+                                                            >
+                                                            à l'endpoint
+                                                            <code
+                                                                >/api/login_check</code
+                                                            >
+                                                            avec vos
+                                                            identifiants :
+                                                        </p>
+                                                        <div
+                                                            class="bg-light p-3 border rounded"
+                                                        >
+                                                            <pre>
+<strong>POST</strong> /api/login_check
+Host : URL de base
+Content-Type: application/json
+
+{
+    "username": "utilisateur@example.com",
+    "password": "mot_de_passe_sécurisé"
+}
+</pre>
+                                                        </div>
+
+                                                        <p class="mt-3">
+                                                            Si les identifiants
+                                                            sont corrects, vous
+                                                            recevrez un token
+                                                            JWT :
+                                                        </p>
+                                                        <div
+                                                            class="bg-light p-3 border rounded"
+                                                        >
+                                                            <strong
+                                                                >Exemple de
+                                                                réponse 200 OK
+                                                                :</strong
+                                                            ><br /><br />
+                                                            <pre>
+    {
+        "token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InV0aWx..."
+    }
+</pre
+                                                            >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Utiliser le Token JWT -->
+                                            <div class="accordion-item">
+                                                <h2
+                                                    class="accordion-header"
+                                                    id="headingTokenUse"
+                                                >
+                                                    <button
+                                                        class="accordion-button collapsed"
+                                                        type="button"
+                                                        data-bs-toggle="collapse"
+                                                        data-bs-target="#collapseTokenUse"
+                                                        aria-expanded="false"
+                                                        aria-controls="collapseTokenUse"
+                                                    >
+                                                        Utiliser le Token JWT
+                                                    </button>
+                                                </h2>
+                                                <div
+                                                    id="collapseTokenUse"
+                                                    class="accordion-collapse collapse"
+                                                    aria-labelledby="headingTokenUse"
+                                                    data-bs-parent="#authAccordion"
+                                                >
+                                                    <div class="accordion-body">
+                                                        <p>
+                                                            Une fois le token
+                                                            obtenu, incluez-le
+                                                            dans chaque requête
+                                                            vers l'API via le
+                                                            header
+                                                            <code
+                                                                >Authorization</code
+                                                            >
+                                                            avec le préfixe
+                                                            <code>Bearer</code>.
+                                                        </p>
+                                                        <div
+                                                            class="bg-light p-3 border rounded"
+                                                        >
+                                                            <pre>
+<strong>GET</strong> /api/clients
+Host : URL de base
+Authorization: Bearer &lt;votre_token_JWT&gt;
+</pre>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Erreurs courantes -->
+                                            <div class="accordion-item">
+                                                <h2
+                                                    class="accordion-header"
+                                                    id="headingErrors"
+                                                >
+                                                    <button
+                                                        class="accordion-button collapsed"
+                                                        type="button"
+                                                        data-bs-toggle="collapse"
+                                                        data-bs-target="#collapseErrors"
+                                                        aria-expanded="false"
+                                                        aria-controls="collapseErrors"
+                                                    >
+                                                        Erreurs courantes
+                                                    </button>
+                                                </h2>
+                                                <div
+                                                    id="collapseErrors"
+                                                    class="accordion-collapse collapse"
+                                                    aria-labelledby="headingErrors"
+                                                    data-bs-parent="#authAccordion"
+                                                >
+                                                    <div class="accordion-body">
+                                                        <p>
+                                                            Si le token est
+                                                            absent, expiré ou
+                                                            invalide, vous
+                                                            recevrez une réponse
+                                                            avec un code
+                                                            d'erreur. Voici un
+                                                            exemple d'erreur
+                                                            lorsque le token est
+                                                            manquant :
+                                                        </p>
+                                                        <div
+                                                            class="bg-light p-3 border rounded"
+                                                        >
+                                                            <strong
+                                                                >Exemple de
+                                                                réponse 401
+                                                                Unauthorized
+                                                                :</strong
+                                                            ><br />
+                                                            <pre>
+{
+    "code": 401,
+    "message": "JWT Token not found"
+}
+</pre
+                                                            >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </section>
+
+            <section id="apiEndpoints" class="mt-5">
+                <div class="container">
+                    <h2 class="text-center mb-5">Endpoints (URI) de l'API</h2>
+                    <p class="text-center">
+                        Voici les différents endpoints disponibles dans l'API
+                        <br />
+                        Chaque ressource possède des méthodes spécifiques pour
+                        interagir avec les données<br />
+                        <strong
+                            >Toutes les données des ressources sont mises en
+                            cache et expirent au bout de 2 minutes</strong
+                        >
+                    </p>
+
+                    <!-- Ressource 1: Produits -->
+                    <div id="produits" class="resource">
+                        <h3 class="text-center mb-3 mt-5">
+                            Ressource : Produits
+                        </h3>
+                        <p class="text-center">
+                            Pagination disponible par défaut à 10 produits par
+                            page <br />
+                            Modifiable avec les paramètres : URI +
+                            ?page=X&limit=X (X étant le chiffre voulu)
+                        </p>
+                        <table
+                            class="table table-bordered table-striped text-center"
+                        >
+                            <thead>
+                                <tr>
+                                    <th>Méthode</th>
+                                    <th>Endpoint URI</th>
+                                    <th>Authentification</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <span class="badge bg-primary"
+                                            >GET</span
+                                        >
+                                    </td>
+                                    <td>/api/products</td>
+                                    <td>Token JWT non requis</td>
+                                    <td>Récupérer la liste des produits</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="badge bg-primary"
+                                            >GET</span
+                                        >
+                                    </td>
+                                    <td>/api/products/{id}</td>
+                                    <td>Token JWT non requis</td>
+                                    <td>
+                                        Récupérer un produit par son identifiant
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Ressource 2: Clients -->
+                    <div id="clients" class="resource mt-5">
+                        <h3 class="text-center mb-3 mt-5">
+                            Ressource : Clients
+                        </h3>
+                        <table
+                            class="table table-bordered table-striped text-center"
+                        >
+                            <thead>
+                                <tr>
+                                    <th>Méthode</th>
+                                    <th>Endpoint URI</th>
+                                    <th>Authentification</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <span class="badge bg-primary"
+                                            >GET</span
+                                        >
+                                    </td>
+                                    <td>/api/clients</td>
+                                    <td>Token JWT requis</td>
+                                    <td>Récupérer la liste des clients</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="badge bg-primary"
+                                            >GET</span
+                                        >
+                                    </td>
+                                    <td>/api/clients/{id}</td>
+                                    <td>Token JWT requis</td>
+                                    <td>
+                                        Récupérer un client par son identifiant
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Ressource 3: Utilisateurs -->
+                    <div id="users" class="resource mt-5">
+                        <h3 class="text-center mb-3 mt-5">
+                            Ressource : Utilisateurs
+                        </h3>
+                        <p class="text-center">
+                            Pagination disponible par défaut à 10 utilisateurs
+                            par page <br />Modifiable avec les paramètres : URI
+                            + ?page=X&limit=X (X étant le chiffre voulu)
+                        </p>
+                        <table
+                            class="table table-bordered table-striped text-center"
+                        >
+                            <thead>
+                                <tr>
+                                    <th>Méthode</th>
+                                    <th>Endpoint URI</th>
+                                    <th>Authentification</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <span class="badge bg-primary"
+                                            >GET</span
+                                        >
+                                    </td>
+                                    <td>/api/users</td>
+                                    <td>Token JWT requis</td>
+                                    <td>Récupérer la liste des utilisateurs</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="badge bg-primary"
+                                            >GET</span
+                                        >
+                                    </td>
+                                    <td>/api/users/{id}</td>
+                                    <td>Token JWT requis</td>
+                                    <td>
+                                        Récupérer un utilisateur par son
+                                        identifiant
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="badge bg-warning"
+                                            >POST</span
+                                        >
+                                    </td>
+                                    <td>/api/users</td>
+                                    <td>Token JWT requis</td>
+                                    <td>
+                                        Créer un utilisateur lié à un client.
+                                        <br /><br />
+                                        <pre>
+{
+    "email": "nouvel.utilisateur@example.com",
+    "password": "motdepasse123",
+    "clientId": X
+}
+                            </pre
+                                        >
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="badge bg-success"
+                                            >PUT</span
+                                        >
+                                    </td>
+                                    <td>/api/users/{id}</td>
+                                    <td>Token JWT requis</td>
+                                    <td>
+                                        Mettre à jour un utilisateur par son
+                                        identifiant. <br /><br />
+                                        <pre>
+{
+    "email": "utilisateur.MODIFIER@example.com",
+    "password": "motdepasseMODIFIER"
+}
+                            </pre
+                                        >
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="badge bg-danger"
+                                            >DELETE</span
+                                        >
+                                    </td>
+                                    <td>/api/users/{id}</td>
+                                    <td>Token JWT requis</td>
+                                    <td>
+                                        Supprimer un utilisateur par son
+                                        identifiant
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Accordéon pour la gestion des codes HTTP -->
+            <section id="httpCodes" class="mt-5">
+                <div class="container">
+                    <h2 class="text-center mb-5">Gestion des codes HTTP</h2>
+                    <p class="text-center">
+                        L'API utilise des codes HTTP standard pour indiquer le
+                        succès ou l'échec des requêtes, conformément aux bonnes
+                        pratiques REST. Chaque code est associé à une
+                        signification spécifique pour aider les développeurs à
+                        comprendre et résoudre les problèmes rencontrés.
+                    </p>
+
+                    <div class="accordion" id="httpAccordion">
+                        <!-- Erreur 200 OK -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading200">
+                                <button
+                                    class="accordion-button"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapse200"
+                                    aria-expanded="true"
+                                    aria-controls="collapse200"
+                                >
+                                    200 OK
+                                </button>
+                            </h2>
+                            <div
+                                id="collapse200"
+                                class="accordion-collapse collapse show"
+                                aria-labelledby="heading200"
+                                data-bs-parent="#httpAccordion"
+                            >
+                                <div class="accordion-body text-center">
+                                    <div class="row">
+                                        <div class="col">
+                                            <strong>Signification</strong>
+                                            <p>
+                                                La requête a été traitée avec
+                                                succès.
+                                            </p>
+                                        </div>
+                                        <div class="col">
+                                            <strong>Réponse</strong>
+                                            <p>
+                                                Lorsque la liste des produits ou
+                                                le détail d'un utilisateur est
+                                                récupéré correctement.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Erreur 201 Created -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading201">
+                                <button
+                                    class="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapse201"
+                                    aria-expanded="false"
+                                    aria-controls="collapse201"
+                                >
+                                    201 Created
+                                </button>
+                            </h2>
+                            <div
+                                id="collapse201"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="heading201"
+                                data-bs-parent="#httpAccordion"
+                            >
+                                <div class="accordion-body text-center">
+                                    <div class="row">
+                                        <div class="col">
+                                            <strong>Signification</strong>
+                                            <p>
+                                                Une nouvelle ressource a été
+                                                créée avec succès.
+                                            </p>
+                                        </div>
+                                        <div class="col">
+                                            <strong>Réponse</strong>
+                                            <p>
+                                                Un body avec les informations du
+                                                nouvel utilisateur lié à un
+                                                client ajouté avec succès.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Erreur 400 Bad Request -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading400">
+                                <button
+                                    class="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapse400"
+                                    aria-expanded="false"
+                                    aria-controls="collapse400"
+                                >
+                                    400 Bad Request
+                                </button>
+                            </h2>
+                            <div
+                                id="collapse400"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="heading400"
+                                data-bs-parent="#httpAccordion"
+                            >
+                                <div class="accordion-body text-center">
+                                    <div class="row">
+                                        <div class="col">
+                                            <strong>Signification</strong>
+                                            <p>
+                                                La requête est mal formée ou
+                                                contient des données invalides.
+                                            </p>
+                                        </div>
+                                        <div class="col">
+                                            <strong>Réponse</strong>
+                                            <p>
+                                                Une requête POST avec un format
+                                                de données JSON incorrect ou un
+                                                paramètre manquant.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Erreur 204 No Content -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading204">
+                                <button
+                                    class="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapse204"
+                                    aria-expanded="false"
+                                    aria-controls="collapse204"
+                                >
+                                    204 No Content
+                                </button>
+                            </h2>
+                            <div
+                                id="collapse204"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="heading204"
+                                data-bs-parent="#httpAccordion"
+                            >
+                                <div class="accordion-body text-center">
+                                    <div class="row">
+                                        <div class="col">
+                                            <strong>Signification</strong>
+                                            <p>
+                                                La requête a été traitée avec
+                                                succès, et il n'y a pas de
+                                                contenu à renvoyer.
+                                            </p>
+                                        </div>
+                                        <div class="col">
+                                            <strong>Réponse</strong>
+                                            <p>
+                                                Suppression d'un utilisateur, ou
+                                                quand une ressource a été
+                                                modifiée et aucune réponse JSON
+                                                n'est nécessaire.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Erreur 401 Unauthorized -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading401">
+                                <button
+                                    class="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapse401"
+                                    aria-expanded="false"
+                                    aria-controls="collapse401"
+                                >
+                                    401 Unauthorized
+                                </button>
+                            </h2>
+                            <div
+                                id="collapse401"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="heading401"
+                                data-bs-parent="#httpAccordion"
+                            >
+                                <div class="accordion-body text-center">
+                                    <div class="row">
+                                        <div class="col">
+                                            <strong>Signification</strong>
+                                            <p>
+                                                Authentification manquante ou
+                                                token JWT invalide.
+                                            </p>
+                                        </div>
+                                        <div class="col">
+                                            <strong>Réponse</strong>
+                                            <p>
+                                                Le token JWT n’est pas fourni ou
+                                                il est expiré/invalide.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Erreur 403 Forbidden -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading403">
+                                <button
+                                    class="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapse403"
+                                    aria-expanded="false"
+                                    aria-controls="collapse403"
+                                >
+                                    403 Forbidden
+                                </button>
+                            </h2>
+                            <div
+                                id="collapse403"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="heading403"
+                                data-bs-parent="#httpAccordion"
+                            >
+                                <div class="accordion-body text-center">
+                                    <div class="row">
+                                        <div class="col">
+                                            <strong>Signification</strong>
+                                            <p>
+                                                Accès refusé, l'utilisateur
+                                                authentifié n'a pas les droits
+                                                nécessaires pour accéder à la
+                                                ressource.
+                                            </p>
+                                        </div>
+                                        <div class="col">
+                                            <strong>Réponse</strong>
+                                            <p>
+                                                Tentative d'accès à une
+                                                ressource protégée sans les
+                                                privilèges adéquats.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Erreur 404 Not Found -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading404">
+                                <button
+                                    class="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapse404"
+                                    aria-expanded="false"
+                                    aria-controls="collapse404"
+                                >
+                                    404 Not Found
+                                </button>
+                            </h2>
+                            <div
+                                id="collapse404"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="heading404"
+                                data-bs-parent="#httpAccordion"
+                            >
+                                <div class="accordion-body text-center">
+                                    <div class="row">
+                                        <div class="col">
+                                            <strong>Signification</strong>
+                                            <p>
+                                                La ressource demandée n'existe
+                                                pas ou n'a pas été trouvée (ID
+                                                Invalide).
+                                            </p>
+                                        </div>
+                                        <div class="col">
+                                            <strong>Réponse</strong>
+                                            <p>
+                                                Recherche d'une ressource qui
+                                                n'existe pas dans la base de
+                                                données.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Erreur 405 Method Not Allowed -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading405">
+                                <button
+                                    class="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapse405"
+                                    aria-expanded="false"
+                                    aria-controls="collapse405"
+                                >
+                                    405 Method Not Allowed
+                                </button>
+                            </h2>
+                            <div
+                                id="collapse405"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="heading405"
+                                data-bs-parent="#httpAccordion"
+                            >
+                                <div class="accordion-body text-center">
+                                    <div class="row">
+                                        <div class="col">
+                                            <strong>Signification</strong>
+                                            <p>
+                                                La méthode HTTP utilisée (GET,
+                                                POST, PUT, DELETE) n'est pas
+                                                autorisée pour cette ressource.
+                                            </p>
+                                        </div>
+                                        <div class="col">
+                                            <strong>Réponse</strong>
+                                            <p>
+                                                Tentative d'utiliser une méthode
+                                                DELETE sur une ressource où
+                                                cette méthode n'est pas permise.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Erreur 422 Unprocessable Entity -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading422">
+                                <button
+                                    class="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapse422"
+                                    aria-expanded="false"
+                                    aria-controls="collapse422"
+                                >
+                                    422 Unprocessable Entity
+                                </button>
+                            </h2>
+                            <div
+                                id="collapse422"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="heading422"
+                                data-bs-parent="#httpAccordion"
+                            >
+                                <div class="accordion-body text-center">
+                                    <div class="row">
+                                        <div class="col">
+                                            <strong>Signification</strong>
+                                            <p>
+                                                La requête est bien formée, mais
+                                                elle ne peut pas être traitée en
+                                                raison d'une erreur de
+                                                validation.
+                                            </p>
+                                        </div>
+                                        <div class="col">
+                                            <strong>Réponse</strong>
+                                            <p>
+                                                Tentative d'ajouter un
+                                                utilisateur avec des données
+                                                incomplètes ou non valides.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Erreur 500 Internal Server Error -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading500">
+                                <button
+                                    class="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapse500"
+                                    aria-expanded="false"
+                                    aria-controls="collapse500"
+                                >
+                                    500 Internal Server Error
+                                </button>
+                            </h2>
+                            <div
+                                id="collapse500"
+                                class="accordion-collapse collapse"
+                                aria-labelledby="heading500"
+                                data-bs-parent="#httpAccordion"
+                            >
+                                <div class="accordion-body text-center">
+                                    <div class="row">
+                                        <div class="col">
+                                            <strong>Signification</strong>
+                                            <p>
+                                                Une erreur serveur imprévue est
+                                                survenue.
+                                            </p>
+                                        </div>
+                                        <div class="col">
+                                            <strong>Réponse</strong>
+                                            <p>
+                                                Problème avec la base de données
+                                                ou une erreur côté serveur.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

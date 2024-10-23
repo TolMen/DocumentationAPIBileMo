@@ -1,0 +1,64 @@
+.sidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 150px; /* Largeur de la barre */
+    background-color: #343a40; /* Couleur sombre */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrage horizontal */
+}
+
+.sidebar a {
+    padding: 10px;
+    text-decoration: none;
+    font-size: 16px;
+    color: white;
+    display: block;
+    text-align: center; /* Centrer le texte */
+    width: 100%; /* Prendre toute la largeur pour faciliter l'alignement */
+    transition: 0.3s;
+}
+
+.sidebar a:nth-child(1) {
+    margin-top: 25px;
+}
+
+.sidebar a:hover {
+    background-color: #495057; /* Couleur au survol */
+}
+
+.content {
+    margin-right: 150px; /* Adapter la marge en fonction de la nouvelle largeur */
+    padding: 20px;
+}
+
+.separator {
+    border-left: 2px solid #ccc; /* Ligne verticale */
+}
+
+.signification,
+.reponse {
+    text-align: center; /* Alignement du texte à gauche dans chaque colonne */
+}
+
+.badge {
+    font-size: 1rem;
+}
+
+/* Centrer le texte dans les cellules du tableau */
+.table {
+    text-align: center;
+}
+.table th,
+.table td {
+    vertical-align: middle;
+}
+
+/* Pré-formatage des exemples de body */
+pre {
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 5px;
+}
