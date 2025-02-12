@@ -1,7 +1,7 @@
 # BileMo REST API Documentation 📘  
 
 > **A simple website documenting the use of the BileMo REST API (Project 7 from OpenClassrooms).**  
-> --> *Version: [Français](README_fr.md)* 📖  
+> --> *Version : [Français](README_fr.md)* 📖  
 
 ## 📖 Description  
 
@@ -13,8 +13,8 @@
 
 ---  
 
-Thank you for taking the time to explore this project.  
-Feel free to explore, learn from, and improve it! ✨  
-For any questions or suggestions, feel free to contact me. 📩  
+Thank you for taking the time to explore this project.
+Feel free to explore, learn, and modify it ! ✨
+For any questions or collaboration, feel free to reach out ! 📩 
 
 [TolMen](https://github.com/TolMen) - [LinkedIn](https://www.linkedin.com/in/jessyfrachisse/)  
