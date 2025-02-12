@@ -1,6 +1,6 @@
 # Documentation API REST BileMo 📘
 
-> **Un site simple pour documenter l'utilisation de l'API REST de BileMo (Projet 7 d'OpenClassrooms).**
+> **Un site simple pour documenter l'utilisation de l'API REST de BileMo (Projet 7 d'OpenClassrooms).** <br>
 > --> *Version : [English](README.md)* 📖
 
 ## 📖 Description  
@@ -13,8 +13,8 @@
 
 ---
 
-Merci d’avoir pris le temps de découvrir ce projet.  
-N’hésitez pas à l’explorer, l’apprendre et l’améliorer ! ✨  
-Pour toute question ou suggestion, contactez-moi. 📩  
+Merci d’avoir pris le temps de découvrir ce projet. <br>
+N’hésitez pas à l’explorer, l’apprendre et l’améliorer ! ✨ <br> 
+Pour toute question ou collaboration, n’hésitez pas à me contacter ! 📩
 
 [TolMen](https://github.com/TolMen) - [LinkedIn](https://www.linkedin.com/in/jessyfrachisse/)
